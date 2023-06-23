@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id ="wrapper">
+
+    <button id ="cick">click</button>
+    <h1 id = "para"></h1>
+    <h1 id = "result"></h1>
+    
+    
+    
+    
+</div>
+<h1></h1>
+<body>
+
+    <script>
+        
+        let cick = document.querySelector("#cick")
+        let para = document.querySelector("h1")
+        let result = document.querySelector("#result")
+
+        cick.addEventListener("click",function(){
+       
+
+            fetch("https://randomuser.me/api")
+                .then(response =>response.json())
+                .then((data)=>{
+                    
+          para.innerHTML = "Name :"+data.results[0].name.first+" "+data.results[0].name.last
+
+                     console.log(data.results[0])
+
+                     result.innerHTML="Location => City :"+data.results[0].location.city+" "+"State :"+data.results[0].location.state+" "+"Country : "+data.results[0].location.country+" "+"Pincoad : "+data.results[0].location.postcode
+                    
+                    // console.log("hello")
+                    
+                })
+            
+            
+            
+        })
+  
+    </script>
+</body>
+</html>
